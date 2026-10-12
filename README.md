@@ -16,7 +16,7 @@ O sistema permite cadastrar produtos, verificar registros duplicados e consultar
 - [x] Conexão com o banco de dados SQLite.
 - [x] Cadastro de produtos.
 - [x] Verificação de produtos duplicados pelo nome.
-- [ ] Listagem de todos os produtos.
+- [x] Listagem de todos os produtos.
 - [ ] Busca de produtos por nome ou categoria.
 - [ ] Alteração de preços e categorias.
 - [ ] Exclusão de produtos.
