@@ -54,7 +54,7 @@ python3 --version
 ### 2. Clone o repositório
 
 ```bash
-git clone URL_DO_SEU_REPOSITORIO
+git clone https://github.com/lucasfreitas0/Mercadinho-Python-SQLite.git
 ```
 
 Entre na pasta do projeto:
