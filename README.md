@@ -18,8 +18,8 @@ O sistema permite cadastrar produtos, verificar registros duplicados e consultar
 - [x] Verificação de produtos duplicados pelo nome.
 - [x] Listagem de todos os produtos.
 - [ ] Busca de produtos por nome ou categoria.
-- [ ] Alteração de preços e categorias.
-- [ ] Exclusão de produtos.
+- [x] Alteração de preços e categorias.
+- [x] Exclusão de produtos.
 - [ ] Ordenação por preço.
 - [ ] Relatórios de preços e categorias.
 
@@ -60,7 +60,7 @@ git clone https://github.com/lucasfreitas0/Mercadinho-Python-SQLite.git
 Entre na pasta do projeto:
 
 ```bash
-cd mercadinho
+cd Mercadinho-Python-SQLite
 ```
 
 ### 3. Execute o programa
