@@ -1,10 +1,8 @@
-from banco import conectar # IMPORTA A FUNÇÃO DE CONECTAR NO DB
 
-conexao = conectar()
 
-cursor = conexao.cursor()
+def buscar(conexao): #FUNÇAO PARA BUSCAR UM PRODUTO OU TODOS
+    cursor = conexao.cursor() 
 
-def buscar(): #FUNÇAO PARA BUSCAR UM PRODUTO OU TODOS
     escolha = int(input(
         "1. Procurar produto.\n"
         "2. Listar todos os produtos.\n"
