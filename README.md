@@ -26,7 +26,7 @@ O sistema permite cadastrar produtos, verificar registros duplicados e consultar
 ## 📁 Estrutura do projeto
 
 ```text
-mercadinho/
+Mercadinho-Python-SQLite/
 ├── main.py
 ├── banco.py
 ├── inserir.py
@@ -99,10 +99,8 @@ Os valores informados pelo usuário são enviados por parâmetros SQL, uma prát
 
 ## 🔮 Próximas melhorias
 
-- Implementar um menu interativo com repetição até o usuário escolher sair.
-- Adicionar validação de entradas e preços.
-- Implementar as operações de consulta, atualização e exclusão.
 - Criar relatórios com funções de agregação SQL, como `COUNT`, `AVG`, `MIN` e `MAX`.
+- Melhor organização dos códigos e do projeto
 
 ## 📚 Status do projeto
 
