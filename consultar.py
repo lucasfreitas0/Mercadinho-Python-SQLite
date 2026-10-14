@@ -1,5 +1,3 @@
-
-
 def buscar(conexao): #FUNÇAO PARA BUSCAR UM PRODUTO OU TODOS
     cursor = conexao.cursor() 
 
@@ -36,4 +34,6 @@ def buscar(conexao): #FUNÇAO PARA BUSCAR UM PRODUTO OU TODOS
             print("Nenhum produto cadastrado.")
 
     else:
-        print("Opção inválida.") # SE A OPÇÃO ESCOLHIDA NÃO ESTIVER NO MENU(ESCOLHA), CAI AQUI
+        print("Opção inválida.") # SE A OPÇÃO ESCOLHIDA NÃO ESTIVER NO MENU: ESCOLHA, CAI AQUI
+
+    cursor.close() # FECHA A INTERAÇÃO COM O DB
