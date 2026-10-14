@@ -1,5 +1,3 @@
-
-
 ## VERIFICA SE O PRODUTO EXISTE NO DB
 def produto_existe(cursor, nome):
     cursor.execute("""
@@ -12,15 +10,15 @@ def produto_existe(cursor, nome):
 
 # FUNÇÃO PRA INSERIR PRODUTOS NO DB
 def inserir(conexao):
-    cursor = conexao.cursor()
+    cursor = conexao.cursor() # FAZ A CONEXÃO PARA EDITAR O DB
 
-    print("Cadastrar produto:")
+    print("=== Cadastrar Produto ===")
     nome = input("Digite o nome do produto: ")
     categoria = input("Digite a categoria do produto: ")
     preco = float(input("Digite o preço do produto: "))
-
+    
     if produto_existe(cursor,nome):
-        print(f'ERRO: O produto {nome} já existe no banco de dados!') # AQUI ELE PUXA A VERIFICAÇÃO FEITA PELA FUNÇÃO DE CIMA
+        print(f'ERRO: O produto {nome} já existe no banco de dados!') # AQUI ELE PUXA A VERIFICAÇÃO FEITA PELA FUNÇÃO produto_existe
     else:
         cursor.execute("""
         INSERT INTO mercadinho
@@ -30,3 +28,5 @@ def inserir(conexao):
 
         conexao.commit() # SALVA A MODIFICAÇÃO
         print(f'Produto {nome} cadastrado com sucesso!\n')
+
+    cursor.close() # FECHA A INTERAÇÃO COM O DB
