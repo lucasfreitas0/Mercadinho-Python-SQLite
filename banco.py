@@ -7,7 +7,8 @@ def conectar(): # CRIA UMA FUNÇÃO PARA QUE OS OUTROS ARQUIVOS POSSAM IMPORTAR
     conexao = sqlite3.connect("mercadinho.db")
     
     cursor = conexao.cursor()
-    
+
+    # CRIA A TABELA mercadinho SE NÃO EXISTIR, JÁ ADICIONANDO OS PARÂMETROS INICIAIS
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS mercadinho(
     id INTEGER PRIMARY KEY,
@@ -15,6 +16,6 @@ def conectar(): # CRIA UMA FUNÇÃO PARA QUE OS OUTROS ARQUIVOS POSSAM IMPORTAR
     categoria TEXT NOT NULL,
     preco REAL NOT NULL)
     """)
-
+    cursor.close() 
     
     return conexao
