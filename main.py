@@ -1,3 +1,5 @@
+# MENU RESPONSAVEL PELA INTERAÇÃO COM O USUÁRIO
+
 from banco import conectar
 from consultar import buscar
 from inserir import inserir
@@ -16,7 +18,7 @@ while True:
     try:
 
         print(menu)
-        escolha = int(input("Escolha: \n"))
+        escolha = int(input("Escolha: "))
         
         if escolha == 1:
             inserir(conexao)
