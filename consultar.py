@@ -3,9 +3,11 @@ def buscar(conexao): #FUNÇAO PARA BUSCAR UM PRODUTO OU TODOS
 
     try: # MENU PRINCIPAL
         escolha = int(input(
-            "1. Procurar produto\n"
+            "\n=== Consultar Produtos ===\n"
+            "\n1. Procurar produto\n"
             "2. Listar todos os produtos\n"
-            "Escolha: "
+            "0. Voltar\n"
+            "\nEscolha: "
             ))
     except ValueError: # ERRO CASO O INPUT NÃO ESTEJA NO MENU
         print("Opção inválida! Digite um número.")
@@ -15,12 +17,13 @@ def buscar(conexao): #FUNÇAO PARA BUSCAR UM PRODUTO OU TODOS
     if escolha == 1:
         try: # MENU SECUNDÁRIO
             menu = int(input(
-                "1. Procurar pelo ID\n"
+                "\n === Procurar produto ===\n"
+                "\n1. Procurar pelo ID\n"
                 "2. Procurar pelo nome\n"
                 "3. Procurar pela categoria\n"
                 "4. Procurar produtos pelo menor preço\n"
                 "0. Voltar\n"
-                "Escolha: "
+                "\nEscolha: "
             ))
         except ValueError: # # ERRO CASO O INPUT NÃO ESTEJA NO MENU
             print("Opção inválida! Digite um número.")
@@ -29,7 +32,7 @@ def buscar(conexao): #FUNÇAO PARA BUSCAR UM PRODUTO OU TODOS
 
         if menu == 1: # PROCURAR PRODUTO PELO ID
             try:
-                identificador = int(input("Qual o ID do produto a ser procurado? "))
+                identificador = int(input("\nQual o ID do produto a ser procurado? "))
             except ValueError:
                 print("ERRO: Digite um ID numérico válido")
                 cursor.close()
@@ -54,7 +57,7 @@ def buscar(conexao): #FUNÇAO PARA BUSCAR UM PRODUTO OU TODOS
                 print ("Produto não encontrado.")
 
         elif menu == 2: # PROCURAR PRODUTO PELO NOME
-            nome = input("Qual o nome do produto a ser procurado? ").strip() # STRIP TIRA OS ESPAÇOS DESNECESSÁRIOS
+            nome = input("\nQual o nome do produto a ser procurado? ").strip() # STRIP TIRA OS ESPAÇOS DESNECESSÁRIOS
 
             if not nome:
                 print("ERRO: O nome não pode ficar vazio!") # ERRO CASO O NOME SEJA DEIXADO EM BRANCO
@@ -75,7 +78,7 @@ def buscar(conexao): #FUNÇAO PARA BUSCAR UM PRODUTO OU TODOS
                 print("Produto não encontrado.")
 
         elif menu == 3: # PROCURAR PRODUTO PELA CATEGORIA
-            categoria = input("Qual categoria será procurada? ").strip()
+            categoria = input("\nQual categoria será procurada? ").strip()
 
             if not categoria or not categoria.replace(" ", "").isalpha(): # CHECAGEM PARA ACEITAR APENAS LETRAS E TIRAR OS ESPAÇOS DESNECESSÁRIOS
                 print("ERRO: Digite uma categoria válida, usando apenas letras!") # ERRO CASO HAJA NÚMEROS DIGITADOS
@@ -127,6 +130,9 @@ def buscar(conexao): #FUNÇAO PARA BUSCAR UM PRODUTO OU TODOS
         else:
             print("Nenhum produto cadastrado.")
 
+    elif escolha == 0:
+        cursor.close()
+        return
     else:
         print("Opção inválida.") # SE A OPÇÃO ESCOLHIDA NÃO ESTIVER NO MENU PRINCIPAL, CAI AQUI
 
