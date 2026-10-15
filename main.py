@@ -2,26 +2,36 @@
 
 from banco import conectar
 from consultar import buscar
-from inserir import inserir
+from inserir import cadastrar
 from alterar import atualizar
 
-conexao = conectar()
 
-menu = (
-"1. Cadastrar produto\n"
+menu = ( # MENU PRINCIPAL
+"=========================\n"
+"      Mercadinho\n"
+"=========================\n"
+"\n1. Cadastrar produto\n"
 "2. Consultar produto\n"
-"3. Alterar Produto\n"
-"4. Sair"
+"3. Alterar oroduto\n"
+"0. Sair\n"
 )
 
-while True:
-    try:
+# LOOP PARA AS ESCOLHAS DO MENU
+conexao = conectar()
 
+try:
+    while True:
         print(menu)
-        escolha = int(input("Escolha: "))
+
+        try:
+            escolha = int(input("Escolha: "))
+
+        except ValueError:
+            print("Escolha apenas com números.\n")
+            continue
         
         if escolha == 1:
-            inserir(conexao)
+            cadastrar(conexao)
 
         elif escolha == 2:
             buscar(conexao)
@@ -29,13 +39,12 @@ while True:
         elif escolha == 3:
             atualizar(conexao)
 
-        elif escolha == 4:
-            conexao.close()
+        elif escolha == 0:
             print("Programa encerrado!")
             break
 
         else:
-            print("Opção inválida, tente novamente.")
+            print("Opção inválida, tente novamente.\n")
 
-    except ValueError:
-        print("Escolha apenas com números.")
+finally:
+    conexao.close()
