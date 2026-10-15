@@ -4,7 +4,7 @@ from banco import conectar
 from consultar import buscar
 from inserir import cadastrar
 from alterar import atualizar
-
+from relatorios import relatorios
 
 menu = ( # MENU PRINCIPAL
 "=========================\n"
@@ -13,6 +13,7 @@ menu = ( # MENU PRINCIPAL
 "\n1. Cadastrar produto\n"
 "2. Consultar produto\n"
 "3. Alterar oroduto\n"
+"4. Relatórios\n"
 "0. Sair\n"
 )
 
@@ -38,6 +39,9 @@ try:
 
         elif escolha == 3:
             atualizar(conexao)
+
+        elif escolha == 4:
+            relatorios(conexao)
 
         elif escolha == 0:
             print("Programa encerrado!")
