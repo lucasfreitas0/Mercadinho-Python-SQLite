@@ -12,35 +12,35 @@ def produto_existe(cursor, nome):
 def cadastrar(conexao):
     cursor = conexao.cursor() # ABRE INTERAÇÃO COM O DB
 
-    print("=== Cadastrar Produto ===")
+    print("\n=== Cadastrar Produto ===\n")
     nome = input("Digite o nome do produto: ").strip()
     if not nome:
-        print("ERRO: O nome não pode ficar vazio!") # ERRO CASO O NOME SEJA DEIXADO EM BRANCO
+        print("\nERRO: O nome não pode ficar vazio!") # ERRO CASO O NOME SEJA DEIXADO EM BRANCO
         cursor.close()
         return
 
     categoria =(input("Digite a categoria do produto: ")).strip()
     if not categoria.replace(" ", "").isalpha(): # VERIFICA PRA CATEGORIA RECEBER APENAS LETRAS
-        print("ERRO: Digite uma categoria válida!")
+        print("\nERRO: Digite uma categoria válida!")
         cursor.close() # FECHA INTERAÇÃO COM O DB
         return
     
     try:
         preco = float(input("Digite o preço do produto: ").replace(",", ".")) # ACEITA NÚMEROS COM VIRGULA OU PONTO
     except ValueError:
-        print("ERRO: Digite um preço válido!")
+        print("\nERRO: Digite um preço válido!")
         cursor.close()
         return
 
     if preco < 0: #  ERRO SE O PREÇO DO PRODUTO FOR NEGATIVO
-        print("ERRO: O preço não pode ser negativo")
+        print("\nERRO: O preço não pode ser negativo")
         cursor.close()
         return
     
     try:
         estoque = int(input("Digite a quantidade para o estoque: "))
     except ValueError:
-        print("ERRO: O estoque aceita apenas números, tente novamente!")
+        print("\nERRO: O estoque aceita apenas números, tente novamente!")
         cursor.close()
         return
 
@@ -50,7 +50,7 @@ def cadastrar(conexao):
         return
     
     if produto_existe(cursor,nome):
-        print(f'ERRO: O produto {nome} já existe no banco de dados!') # AQUI ELE PUXA A VERIFICAÇÃO FEITA PELA FUNÇÃO produto_existe
+        print(f'\nERRO: O produto {nome} já existe no banco de dados!') # AQUI ELE PUXA A VERIFICAÇÃO FEITA PELA FUNÇÃO produto_existe
     else:
         cursor.execute("""
         INSERT INTO mercadinho
@@ -59,6 +59,6 @@ def cadastrar(conexao):
         """, (nome, categoria, preco, estoque),) # MUDA OS VALORES PELOS VALORES INSERIDOS
 
         conexao.commit() # SALVA A MODIFICAÇÃO
-        print(f'Produto {nome} cadastrado com sucesso!\n')
+        print(f'\nProduto {nome} cadastrado com sucesso!\n')
 
     cursor.close() # FECHA A INTERAÇÃO COM O DB
