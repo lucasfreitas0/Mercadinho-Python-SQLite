@@ -2,7 +2,7 @@
 
 Projeto desenvolvido em **Python e SQLite** com o objetivo de praticar programação, consultas SQL e manipulação de bancos de dados relacionais.
 
-O sistema permite cadastrar produtos, verificar registros duplicados e consultar informações armazenadas no banco de dados.
+O sistema permite cadastrar produtos, verificar registros duplicados, consultar informações, atualizar dados e excluir produtos armazenados no banco de dados.
 
 ## 🚀 Tecnologias utilizadas
 
@@ -17,10 +17,10 @@ O sistema permite cadastrar produtos, verificar registros duplicados e consultar
 - [x] Cadastro de produtos.
 - [x] Verificação de produtos duplicados pelo nome.
 - [x] Listagem de todos os produtos.
-- [ ] Busca de produtos por nome ou categoria.
-- [x] Alteração de preços e categorias.
+- [x] Busca de produtos por ID, nome ou categoria.
+- [x] Alteração de nomes, preços, categorias e estoque.
 - [x] Exclusão de produtos.
-- [ ] Ordenação por preço.
+- [x] Ordenação de produtos por preço.
 - [ ] Relatórios de preços e categorias.
 
 ## 📁 Estrutura do projeto
@@ -31,21 +31,23 @@ Mercadinho-Python-SQLite/
 ├── banco.py
 ├── inserir.py
 ├── consultar.py
+├── alterar.py
 ├── mercadinho.db
 └── README.md
 ```
 
 - `main.py`: menu principal e controle do programa.
-- `banco.py`: gerenciamento da conexão com o banco de dados.
-- `inserir.py`: cadastro e verificação de produtos duplicados.
+- `banco.py`: conexão com o banco de dados e criação da tabela.
+- `inserir.py`: cadastro de produtos e verificação de duplicidade.
 - `consultar.py`: consultas e pesquisas de produtos.
+- `alterar.py`: atualização e exclusão de produtos.
 - `mercadinho.db`: arquivo do banco de dados SQLite, criado ou utilizado pela aplicação.
 
 ## ⚙️ Como executar
 
 ### 1. Instale o Python
 
-É necessário ter o Python 3 instalado. Você pode verificar a instalação executando:
+É necessário ter o Python 3 instalado. Verifique a instalação com:
 
 ```bash
 python3 --version
@@ -69,22 +71,23 @@ cd Mercadinho-Python-SQLite
 python3 main.py
 ```
 
-**Observação:** o projeto utiliza `sqlite3`, que já faz parte da biblioteca padrão do Python na maioria das instalações, sem necessidade de instalar um pacote adicional.
+**Observação:** o projeto utiliza `sqlite3`, que faz parte da biblioteca padrão do Python. Portanto, normalmente não é necessário instalar pacotes adicionais.
 
 ## 🗄️ Banco de dados
 
-O projeto utiliza SQLite para armazenar os produtos.
+O projeto utiliza SQLite para armazenar os produtos em uma tabela chamada `mercadinho`.
 
 Cada produto possui os seguintes campos:
 
-| Campo       | Descrição                      |
-| ----------- | ------------------------------ |
-| `id`        | Identificador único do produto |
-| `nome`      | Nome do produto                |
-| `categoria` | Categoria do produto           |
-| `preco`     | Preço do produto               |
+| Campo | Descrição |
+|---|---|
+| `id` | Identificador único do produto |
+| `nome` | Nome do produto |
+| `categoria` | Categoria do produto |
+| `preco` | Preço do produto |
+| `estoque` | Quantidade disponível em estoque |
 
-As operações de banco de dados utilizam comandos SQL como `INSERT`, `SELECT` e, futuramente, `UPDATE` e `DELETE`.
+As operações utilizam comandos SQL como `INSERT`, `SELECT`, `UPDATE` e `DELETE` para cadastrar, consultar, atualizar e excluir registros.
 
 Os valores informados pelo usuário são enviados por parâmetros SQL, uma prática importante para reduzir o risco de SQL Injection.
 
@@ -96,15 +99,16 @@ Os valores informados pelo usuário são enviados por parâmetros SQL, uma prát
 - Trabalhar com consultas parametrizadas.
 - Organizar um projeto em múltiplos arquivos.
 - Desenvolver boas práticas de programação.
+- Praticar tratamento de erros e validação de dados.
 
 ## 🔮 Próximas melhorias
 
 - Criar relatórios com funções de agregação SQL, como `COUNT`, `AVG`, `MIN` e `MAX`.
-- Melhor organização dos códigos e do projeto
+- Desenvolver uma interface gráfica utilizando PySide6.
 
 ## 📚 Status do projeto
 
-🚧 Em desenvolvimento — projeto de estudo para praticar Python e SQL.
+🚧 **Em desenvolvimento** — projeto pessoal de estudo para praticar Python, SQL e gerenciamento de bancos de dados.
 
 ## 👨‍💻 Autor
 
