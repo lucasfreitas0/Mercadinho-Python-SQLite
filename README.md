@@ -21,7 +21,7 @@ O sistema permite cadastrar produtos, verificar registros duplicados, consultar 
 - [x] Alteração de nomes, preços, categorias e estoque.
 - [x] Exclusão de produtos.
 - [x] Ordenação de produtos por preço.
-- [ ] Relatórios de preços e categorias.
+- [x] Relatórios de preços e categorias.
 
 ## 📁 Estrutura do projeto
 
