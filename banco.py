@@ -1,8 +1,7 @@
 # ARQUIVO IMPORTANTE PARA A CONEXÃO DE TODOS OS ARQUIVOS COM O BANCO DE DADOS
-
 import sqlite3
 
-def conectar(): # CRIA UMA FUNÇÃO PARA QUE OS OUTROS ARQUIVOS POSSAM IMPORTAR 
+def conectar(): # CRIA UMA FUNÇÃO DE CONEXÃO PARA QUE OS OUTROS ARQUIVOS POSSAM IMPORTAR 
 
     conexao = sqlite3.connect("mercadinho.db")
     
@@ -14,7 +13,8 @@ def conectar(): # CRIA UMA FUNÇÃO PARA QUE OS OUTROS ARQUIVOS POSSAM IMPORTAR
     id INTEGER PRIMARY KEY,
     nome TEXT NOT NULL,
     categoria TEXT NOT NULL,
-    preco REAL NOT NULL)
+    preco REAL NOT NULL,
+    estoque INTEGER NOT NULL)
     """)
     cursor.close() 
     
